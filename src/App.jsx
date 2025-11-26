@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, Github } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import Whitepaper from './components/Whitepaper';
 import TableOfContents from './components/TableOfContents';
 import GlossaryPanel from './components/GlossaryPanel';
@@ -38,19 +38,14 @@ function App() {
               </button>
               <div className="flex items-center ml-4 lg:ml-0">
                 <FileText className="h-8 w-8 text-orange-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white">Datinum Whitepaper v0.1</span>
+                <div className="ml-2 flex flex-col leading-tight">
+                  <span className="text-xl font-bold text-gray-900 dark:text-white">Datinum Whitepaper</span>
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400">v0.1</span>
+                </div>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <a
-                href="https://github.com/datinum"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900 transition-colors"
-              >
-                <Github size={24} />
-              </a>
             </div>
           </div>
         </div>
