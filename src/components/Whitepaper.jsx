@@ -196,6 +196,8 @@ const Whitepaper = ({ content, onTermClick }) => {
     React.useEffect(() => {
         let cancelled = false;
         let script = document.getElementById('katex-script') || document.querySelector('script[src*="katex"]');
+        let autoRenderScript = document.getElementById('katex-auto-render') || document.querySelector('script[src*="auto-render"]');
+        let retryTimer;
 
         const renderKatex = () => {
             if (cancelled || !window.katex) return;
@@ -236,18 +238,69 @@ const Whitepaper = ({ content, onTermClick }) => {
                     // ignore individual failures to keep page rendering
                 }
             });
+
+            const autoRender = () => {
+                if (!window.renderMathInElement || !articleRef.current) return false;
+                try {
+                    window.renderMathInElement(articleRef.current, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '\\[', right: '\\]', display: true },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '$', right: '$', display: false },
+                        ],
+                        throwOnError: false,
+                        strict: false,
+                    });
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            };
+
+            if (!autoRender()) {
+                if (retryTimer) clearTimeout(retryTimer);
+                retryTimer = setTimeout(autoRender, 250);
+            }
+
+            if (!window.renderMathInElement && autoRenderScript) {
+                autoRenderScript.addEventListener('load', autoRender, { once: true });
+            } else if (!window.renderMathInElement && !autoRenderScript) {
+                autoRenderScript = document.createElement('script');
+                autoRenderScript.id = 'katex-auto-render';
+                autoRenderScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
+                autoRenderScript.defer = true;
+                autoRenderScript.onload = autoRender;
+                document.head.appendChild(autoRenderScript);
+            } else if (autoRenderScript && autoRenderScript.readyState === 'complete') {
+                autoRender();
+            } else if (autoRenderScript) {
+                autoRenderScript.addEventListener('load', autoRender, { once: true });
+            }
         };
 
         if (window.katex) {
             renderKatex();
         } else {
-            const attach = () => script && script.addEventListener('load', renderKatex);
+            const attach = () => script && script.addEventListener('load', () => {
+                if (!autoRenderScript) {
+                    autoRenderScript = document.createElement('script');
+                    autoRenderScript.id = 'katex-auto-render';
+                    autoRenderScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';
+                    autoRenderScript.defer = true;
+                    autoRenderScript.onload = renderKatex;
+                    document.head.appendChild(autoRenderScript);
+                } else {
+                    autoRenderScript.addEventListener('load', renderKatex);
+                }
+            });
 
             if (!script) {
                 script = document.createElement('script');
                 script.id = 'katex-script';
                 script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
                 script.defer = true;
+                script.onload = renderKatex;
                 document.head.appendChild(script);
             }
 
@@ -256,8 +309,12 @@ const Whitepaper = ({ content, onTermClick }) => {
 
         return () => {
             cancelled = true;
+            if (retryTimer) clearTimeout(retryTimer);
             if (script) {
                 script.removeEventListener('load', renderKatex);
+            }
+            if (autoRenderScript) {
+                autoRenderScript.removeEventListener('load', renderKatex);
             }
         };
     }, [content]);
