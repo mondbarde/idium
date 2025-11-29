@@ -41,7 +41,12 @@
 
 * 고소득 직장인조차 **주거·교육 비용 상승을 따라가기 벅찬 상황**에 놓이고,
 * 자산을 이미 보유한 계층은 **추가 대출·레버리지·투자 상품**에 더욱 쉽게 접근할 수 있으며,
-* 결국 “돈이 돈을 버는” 구조가 “사람이 일해서 돈을 버는” 구조를 압도하게 된다.
+* 결국 "돈이 돈을 버는" 구조가 "사람이 일해서 돈을 버는" 구조를 압도하게 된다.
+
+<figure style="margin: 2rem 0; text-align: center;">
+  <img src="/images/unbalanced_wealth.jpg" alt="세계 부의 쏠림 구조 그래프" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #6b7280;">세계 부의 쏠림 구조: 상위 20%가 전 세계 자산의 약 80%를 보유</figcaption>
+</figure>
 
 #### 2.1.2 법정화폐와 신용 창출, 그리고 자산 인플레이션
 
