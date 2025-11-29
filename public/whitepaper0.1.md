@@ -95,6 +95,11 @@
 
 요컨대, 데이터는 사실상 새로운 **금(Gold)**과 같은 역할을 하지만, 그 금광에서 실제로 금을 캐고 있는 광부(개인)는 자신의 몫을 배당받지 못하는 구조다.
 
+<figure style="margin: 2rem 0; text-align: center;">
+  <img src="/images/data-exploitation.jpg" alt="데이터 착취 구조: 유저 보상 = 0" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #6b7280;">플랫폼의 데이터 독점 구조: 사용자는 데이터를 생산하지만 보상은 0</figcaption>
+</figure>
+
 #### 2.2.2 플랫폼 자본주의와 비대칭 권력
 
 데이터 자산이 플랫폼에 집중되면서, 플랫폼은 다음과 같은 권력을 갖게 된다.
