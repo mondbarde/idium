@@ -35,6 +35,11 @@
 
 #### 2.1.1 노동 소득보다 빠르게 성장하는 자산 소득
 
+<figure style="margin: 2rem 0; text-align: center;">
+  <img src="/images/money-makes-money.jpg" alt="돈이 돈을 버는 구조: 노동소득 vs 자본소득" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #6b7280;">노동소득 vs 자본소득: 자산이 더 빠르게 부를 증식시키는 구조</figcaption>
+</figure>
+
 현대 자본주의 사회에서 개인이 생계를 유지하는 가장 직접적인 수단은 여전히 **노동 소득**이다. 그러나 지난 수십 년간 실제로 큰 부를 축적한 다수는 노동이 아니라 **자산의 가격 상승**을 통해 이를 이뤄냈다. 주식, 채권, 부동산, 사모펀드, 벤처 투자 등 다양한 금융·실물 자산은, 그에 접근할 수 있는 사람에게 또 다른 투자 기회를 제공하고, 다시 그 수익으로 더 많은 자산을 매입할 수 있게 한다.
 
 이 과정에서 “노동만으로는 도저히 따라잡을 수 없는 자산 격차”가 발생한다.
