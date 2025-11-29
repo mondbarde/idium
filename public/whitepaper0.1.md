@@ -164,7 +164,12 @@ UBI(Universal Basic Income, 보편적 기본소득)는 오랫동안 사회정책
 * **정치적 의존성**: 선거·정권 교체에 따라 UBI 정책이 쉽게 폐지되거나 축소될 수 있으며, 이는 제도의 지속가능성을 떨어뜨린다.
 * **국가 단위에 묶인 프레임**: 대부분의 UBI 논의는 특정 국가의 재정·경제 구조 안에서만 설계되며, **국경을 넘는 디지털 경제·데이터 경제**의 현실을 반영하지 못한다.
 
-결국 기존 UBI는 “좋은 취지”에 비해 **지속 가능한 실행 메커니즘**이 부족한 상태다.
+결국 기존 UBI는 "좋은 취지"에 비해 **지속 가능한 실행 메커니즘**이 부족한 상태다.
+
+<figure style="margin: 2rem 0; text-align: center;">
+  <img src="/images/currency-comparison.jpg" alt="법정화폐 vs 비트코인 vs 인격본위제 화폐 비교표" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #6b7280;">법정화폐·비트코인·인격본위제 화폐의 핵심 특성 비교</figcaption>
+</figure>
 
 ---
 
