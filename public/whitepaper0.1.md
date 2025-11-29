@@ -901,6 +901,11 @@ UBI는 **“존재의 가치”**에 대한 보상이라면,
 프로젝트의 첫 접점은 사람들이 실제로 사용하는 서비스,
 즉 **Datinum 애플리케이션(가제:MonoID)**이다.
 
+<figure style="margin: 2rem 0; text-align: center;">
+  <img src="/images/user-onboarding-journey.jpg" alt="온보딩 유저 여정" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #6b7280;">유저 여정 5단계: 가입 → 명함 생성 → 데이터 예치 → 기본소득 수령 → 활동 보상</figcaption>
+</figure>
+
 #### 6.2.1 핵심 기능
 
 * **디지털 명함 생성·공유**
