@@ -148,7 +148,9 @@ const Whitepaper = ({ content, onTermClick }) => {
             );
         },
         code: ({ node, inline, className, children, ...props }) => {
-            return inline ? (
+            // react-markdown v9는 inline prop을 넘기지 않으므로 내용 기반으로 판별
+            const isInline = inline ?? !(/\n/.test(String(children)) || (className || '').includes('language-'));
+            return isInline ? (
                 <code className="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded px-2 py-0.5 text-sm font-mono font-semibold" {...props}>
                     {children}
                 </code>
@@ -161,6 +163,22 @@ const Whitepaper = ({ content, onTermClick }) => {
             );
         },
         a: ({ node, ...props }) => <a className="text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300 font-medium underline decoration-orange-400 dark:decoration-orange-600 hover:decoration-orange-600 dark:hover:decoration-orange-400 decoration-2 transition-all" {...props} />,
+        table: ({ node, ...props }) => (
+            <div className="overflow-x-auto my-6 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
+                <table className="w-full text-left border-collapse" {...props} />
+            </div>
+        ),
+        thead: ({ node, ...props }) => <thead className="bg-orange-50 dark:bg-gray-800" {...props} />,
+        th: ({ node, ...props }) => <th className="border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3 text-sm font-bold text-gray-700 dark:text-gray-300 whitespace-nowrap" {...props} />,
+        td: ({ node, children, ...props }) => {
+            const processedChildren = React.Children.map(children, child => {
+                if (typeof child === 'string') {
+                    return wrapTermsWithClickable(child);
+                }
+                return child;
+            });
+            return <td className="border-b border-gray-200 dark:border-gray-700 px-4 py-3 text-base leading-7 text-gray-900 dark:text-gray-100 align-top" {...props}>{processedChildren}</td>;
+        },
         hr: ({ node, ...props }) => <hr className="my-12 border-gray-200 dark:border-gray-700" {...props} />,
         strong: ({ node, children, ...props }) => <strong className="font-bold text-orange-600 dark:text-orange-400" {...props}>{children}</strong>,
         em: ({ node, ...props }) => <em className="italic text-orange-700 dark:text-orange-400" {...props} />,
