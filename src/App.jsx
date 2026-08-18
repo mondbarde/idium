@@ -9,9 +9,11 @@ function App() {
   const [markdown, setMarkdown] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [highlightedTerm, setHighlightedTerm] = useState('');
+  const [lang, setLang] = useState('ko');
 
   useEffect(() => {
-    const whitepaperUrl = `${import.meta.env.BASE_URL}whitepaper1.0.md`;
+    const file = lang === 'en' ? 'whitepaper1.0.en.md' : 'whitepaper1.0.md';
+    const whitepaperUrl = `${import.meta.env.BASE_URL}${file}`;
 
     fetch(whitepaperUrl)
       .then((response) => response.text())
@@ -21,7 +23,7 @@ function App() {
         setMarkdown(processed);
       })
       .catch((error) => console.error('Error loading whitepaper:', error));
-  }, []);
+  }, [lang]);
 
 
   return (
@@ -46,6 +48,13 @@ function App() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
+              <button
+                onClick={() => setLang(lang === 'ko' ? 'en' : 'ko')}
+                className="px-3 py-1.5 rounded-md text-sm font-semibold border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Toggle language"
+              >
+                {lang === 'ko' ? 'EN' : '한국어'}
+              </button>
               <ThemeToggle />
             </div>
           </div>
